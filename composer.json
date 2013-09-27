@@ -1,0 +1,29 @@
+{
+    "name": "attitude/Elements/API",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/attitude/elements"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/attitude/elements-handler"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/attitude/elements-request"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/attitude/elements-responder"
+        }
+    ],
+    "require": {
+        "attitude/Elements": "0.1.*",
+        "attitude/Elements/Handler": "0.1.*",
+        "attitude/Elements/Request": "0.1.*",
+        "attitude/Elements/Responder": "0.1.*"
+    }
+}
