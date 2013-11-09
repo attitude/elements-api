@@ -15,6 +15,10 @@ final class API_Element
         $handler = $this->request->getRequestURIArray();
         $handler = array_shift($handler);
 
+        if (strlen($handler)===0) {
+            $handler = DependencyContainer::get(get_called_class().'.DEFAULT_HANDLER', 'index');
+        }
+
         try {
             $handler = DependencyContainer::get(get_called_class().'.handler('.$handler.')');
             $this->setHandler($handler);
