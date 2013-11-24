@@ -39,6 +39,8 @@ final class API_Element
 
             try {
                 $responder = DependencyContainer::get(get_called_class().'.'.$accept.'_responder');
+
+                break; // Found
             } catch (HTTPException $e) {
                 trigger_error('Responder for accept is not set:'. get_called_class().'.'.$accept.'_responder');
 
