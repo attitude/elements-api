@@ -29,13 +29,23 @@ final class API_Element
 
         // Try to load an accept
         foreach ($this->request->getAccept() as $accept) {
+            $coeficient = 1.0;
+            // Ignore coeficient for now; Takes order as presented in the header: 1st than 2nd, etc.
+            if (strstr($accept, ';')) {
+                list($accept, $coeficient) = explode(';', $accept);
+
+                $coeficient = (float) $coeficient;
+            }
+
             try {
                 $responder = DependencyContainer::get(get_called_class().'.'.$accept.'_responder');
             } catch (HTTPException $e) {
+                trigger_error('Responder for accept is not set:'. get_called_class().'.'.$accept.'_responder');
+
                 continue;
             }
 
-            $this->setResponder($reponder);
+            $this->setResponder($responder);
         }
 
         if ($this->responder===null) {
