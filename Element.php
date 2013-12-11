@@ -79,10 +79,15 @@ final class API_Element
         return $this;
     }
 
+    public function run()
+    {
+        return $this->handler->handle();
+    }
+
     public function respond()
     {
         try {
-            $data = $this->handler->handle();
+            $data = $this->run();
         } catch (HTTPException $e) {
             throw $e;
         }
