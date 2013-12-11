@@ -46,9 +46,9 @@ final class API_Element
 
                 continue;
             }
-
-            $this->setResponder($responder);
         }
+
+        $this->setResponder($responder);
 
         if ($this->responder===null) {
             $this->setResponder(DependencyContainer::get(get_called_class().'.responder'));
